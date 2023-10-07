@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=aref-ruqaa">
+    
+    <title>Rate Our Service</title>
+	
+	
+      <img src="https://i.postimg.cc/ZqVCXHq1/30-1683570332-removebg-preview-1.png" alt="Logo" id="logo">
+
+
+        <p>مطعم و كافية طلة القدس</p>
+   
+
+	
+
+	<style>
+	
+	 body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tahoma', sans-serif;
+    background-image: url('https://i.postimg.cc/7h80XxKm/Whats-App-Image-2023-10-06-at-19-25-05-ab820d44.jpg');
+    background-size: cover; /* Ensure background image covers the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent image from tiling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes at least full height of viewport */
+}
+
+
+.header p {
+    font-size: 24px;
+}
+
+		
+		.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the color and opacity */
+    z-index: 1;
+}
+
+       p {
+	   
+	font-size: 24px;   
+	font-family: 'aref-ruqaa', serif;
+    color: black;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+    text-align: center;
+    background-color: white;
+	background-position: center;
+    padding: 1px 15px; /* Adjusted padding */
+    border-radius: 6px;
+    
+}
+
+
+
+        h1 {
+            font-family: 'aref-ruqaa', serif; /* Fixed the font-family declaration */
+            color: black;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+            font-size: 24px;
+			text-align: center;
+            margin: 0;
+            padding: 5px 0;
+        }
+
+      .slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically center the content */
+    height: 100%; 
+    position: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.rating {
+    direction: ltr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    font-size: 40px;
+    color: #ccc;
+    transition: color 0.3s ease-in-out;
+}
+
+.rating label:before {
+    content: '\2605';
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #ffcc00;
+}
+
+textarea.review {
+    font-family: 'aref-ruqaa', serif;
+    color: white;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+    font-size: 16px;
+    text-align: right;
+    width: 60%;
+    border: none;
+    margin-top: 10px; /* Adjusted margin for spacing between textareas */
+    border-radius: 10px;
+    min-height: 50px;
+    background-color: rgba(243, 156, 18, 0.3);
+    resize: none;
+    outline: none;
+    overflow: hidden;
+}
+
+button {
+    font-family: 'aref-ruqaa', serif;
+    background-color: #f39c12;
+    color: black;
+    border: none;
+    padding: 8px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Space above the button */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#about-us {
+    /* Any specific styles for this section */
+	
+}
+
+#about-us h1 {
+    font-family: 'aref-ruqaa', serif;
+    color: white;
+	text-align: center;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+    font-size: 24px;
+    margin: 0;
+    padding: 5px 0;
+	
+}
+
+#about-us p {
+   font-family: 'aref-ruqaa', serif; /* Fixed the font-family declaration */
+            color: white;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+            font-size: 16px;
+            margin: 0;
+            padding: 5px 0;
+			text-align: center;
+
+}
+/* Button styling */
+.slide-btn {
+    position: fixed;
+    top: 50%;
+    font-size: 24px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+#prev { left: 10px; }
+#next { right: 10px; }
+.slide-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+button, .slide-btn {
+    ...
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover, .slide-btn:hover {
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.slides-container {
+    position: relative;
+    width: 85%;
+    max-width: 600px;
+    overflow: hidden;
+    background-color: white ;
+    border-radius: 5px;
+	padding: 1px;
+   
+}
+
+.slide {
+    display: none;
+    width: 100%;
+	align-items: center;
+    justify-content: center; 
+    transition: opacity 0.5s;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 5px; /* If you want the images also to have rounded corners */
+}
+
+.slide-content {
+    font-family: 'aref-ruqaa', serif;
+    color: white;
+    
+    text-align: center;
+}
+
+.slide-content h1 {
+    font-size: 24px;
+    margin: 0;
+	text-align: center;
+    padding: 5px 0;
+}
+
+.slide-content p {
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 0;
+	text-align: center;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    color: #ffffff;
+    background-color: #f39c12;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, background-color 0.3s ease;
+}
+
+#prev {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+#next {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+button, .slide-btn {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover, .slide-btn:hover {
+    background-color: #e67e22;
+    transform: scale(1.05); /* Add a slight enlargement on hover */
+}
+
+ #logo {
+            width: 85px;
+            height: auto;
+        }
+
+
+	</style>
+	
+</head>
+
+<body>
+
+ 
+<button id="prev" class="slide-btn">←</button>
+<button id="next" class="slide-btn">→</button>
+
+  <div class="slides-container">
+    <section id="review-section" class="slide">
+        <h1>كيف كانت خدمتنا؟</h1>
+        <form id="review-form" action="http://localhost:3000/submit_review" method="POST">
+            <div class="rating">
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1"></label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2"></label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3"></label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4"></label>
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5"></label>
+            </div>
+			
+            <div class="container">
+                <textarea class="review" name="floorNumber" placeholder="رقم الطابق" required></textarea>
+                <textarea class="review" name="tableNumber" placeholder="رقم الطاولة" required></textarea>
+                <textarea class="review" name="reviewText" placeholder="أضف مراجعتك" required></textarea>
+                <button type="submit">إرسال المراجعة</button>
+            </div>
+        </form>
+    </section>
+</div>
+    <div class="slides-container">
+        <section id="about-us" class="slide">
+            <h1>مين احنا؟</h1>
+            <p>مرحباً في طلة القدس مكان ينبض بالحياة والثقافة السلطية بالنكهة القدسية الاصيلة, نحن مجموعة من الشبان السلطية الذين نفخر بتراثنا ونشارك حبنا للطعام والضيافة مع كل زائر. لدينا قائمة مُعدة بعناية تجمع بين الأطباق التقليدية والحديثة، كلها مُعدة بحب واحترافية. نتطلع لمشاركة لحظات السعادة والذكريات معكم في طلة القدس.</p>
+        </section>
+    </div>
+    <script src="C:\Users\user\OneDrive\Desktop\resturant website\slides.js"></script>
+	<script src="C:\Users\user\OneDrive\Desktop\myExpressApp\node_modules\public\app.js"></script>
+     
+	
+</body>
+</html>
