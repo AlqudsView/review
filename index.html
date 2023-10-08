@@ -337,20 +337,29 @@ button:hover, .slide-btn:hover {
 
 
  <script>
- document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    // An array of all .slide elements
+    const slides = document.querySelectorAll('.slides-container .slide');
+
+    // Start at the first slide
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    slides[currentSlide].classList.add('active');
+    slides[currentSlide].style.display = 'block';
 
-    const updateSlide = (direction) => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    };
+    // Handle clicking the "next" button
+    document.getElementById('next').addEventListener('click', function () {
+        slides[currentSlide].style.display = 'none';
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.display = 'block';
+    });
 
-    document.getElementById('next').addEventListener('click', () => updateSlide(1));
-    document.getElementById('prev').addEventListener('click', () => updateSlide(-1));
+    // Handle clicking the "prev" button
+    document.getElementById('prev').addEventListener('click', function () {
+        slides[currentSlide].style.display = 'none';
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        slides[currentSlide].style.display = 'block';
+    });
 });
+
 </script>
 
 
