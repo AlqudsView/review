@@ -331,10 +331,33 @@ button:hover, .slide-btn:hover {
             <p>مرحباً في طلة القدس مكان ينبض بالحياة والثقافة السلطية بالنكهة القدسية الاصيلة, نحن مجموعة من الشبان السلطية الذين نفخر بتراثنا ونشارك حبنا للطعام والضيافة مع كل زائر. لدينا قائمة مُعدة بعناية تجمع بين الأطباق التقليدية والحديثة، كلها مُعدة بحب واحترافية. نتطلع لمشاركة لحظات السعادة والذكريات معكم في طلة القدس.</p>
         </section>
     </div>
-    <script src="https://raw.githubusercontent.com/AlqudsView/review/main/slides.js"></script>
+  
 <script src="https://raw.githubusercontent.com/AlqudsView/review/main/app.js"></script>
 
-     
+
+
+ <script>
+ document.addEventListener("DOMContentLoaded", function() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    slides[currentSlide].classList.add('active');
+
+    const updateSlide = (direction) => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    };
+
+    document.getElementById('next').addEventListener('click', () => updateSlide(1));
+    document.getElementById('prev').addEventListener('click', () => updateSlide(-1));
+});
+</script>
+
+
+
+
+
+	
 	
 </body>
 </html>
