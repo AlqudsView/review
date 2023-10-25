@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews</title>
+
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        #reviews {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+        }
+
+        .review-box {
+            background-color: orange;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .review-details {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+<div id="reviews"></div>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+<script>
+// Firebase configuration
+const firebaseConfig = {
+ apiKey: "AIzaSyC2n4YVYG42Z07U0loqvtW4QcT7EdDbzVM",
+            authDomain: "alquds-view.firebaseapp.com",
+            databaseURL: "https://alquds-view-default-rtdb.firebaseio.com",
+            projectId: "alquds-view",
+            storageBucket: "alquds-view.appspot.com",
+            messagingSenderId: "272107325033",
+            appId: "1:272107325033:web:5fa1e04aa61a9ab60944f8",
+            measurementId: "G-FN8YSC0NL1"
+        };
+		
+// Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+  // Reference to your database
+  var dbRef = firebase.database().ref('reviews');
+
+  // Get element to display reviews
+  var reviewsElement = document.getElementById('reviews');
+
+  // Listen for new reviews and update the page
+  dbRef.on('value', (snapshot) => {
+    var reviews = snapshot.val();
+    var allReviews = '';
+    for(var review in reviews){
+        allReviews += '<p>' + reviews[review].reviewText + '</p>';
+    }
+    reviewsElement.innerHTML = allReviews;
+  });
+  
+  // Listen for new reviews and update the page
+dbRef.on('value', (snapshot) => {
+  var reviews = snapshot.val();
+  var allReviews = '';
+  
+  for (var reviewKey in reviews) {
+    var review = reviews[reviewKey];
+    allReviews += '<div style="margin-bottom: 20px;">';
+    allReviews += '<h3>Review:</h3>';
+    allReviews += '<p>Floor Number: ' + (review.floorNumber || 'N/A') + '</p>';
+    allReviews += '<p>Rating: ' + (review.rating || 'N/A') + '</p>';
+    allReviews += '<p>Review Text: ' + (review.reviewText || 'N/A') + '</p>';
+    allReviews += '<p>Table Number: ' + (review.tableNumber || 'N/A') + '</p>';
+    allReviews += '<p>Timestamp: ' + (review.timestamp || 'N/A') + '</p>';
+    allReviews += '</div>';
+  }
+  
+  reviewsElement.innerHTML = allReviews;
+});
+  
+</script>
+
+</body>
+</html>
